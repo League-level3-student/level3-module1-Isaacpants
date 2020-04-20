@@ -16,7 +16,7 @@ public class Song {
 	/**
 	 * Songs can be constructed from files on your computer or Internet addresses. *
 	 * Examples: <code>
-	* new Song("everywhere.mp3"); //from default package
+//	* new Song("everywhere.mp3"); //from default package
 	* new Song("/Users/joonspoon/music/Vampire Weekend - Modern
 	Vampires of the City/03 Step.mp3"); * new
 	Song("http://freedownloads.last.fm/download/569264057/Get%2BGot.mp3"); * </code>
@@ -24,7 +24,7 @@ public class Song {
 	public Song(String songAddress) {
 		this.songAddress = songAddress;
 	}
-
+	
 	public void play() {
 		loadFile();
 		if (songStream != null) {
