@@ -21,8 +21,9 @@ public class _06_IPodShuffle implements ActionListener{
 	
 	public _06_IPodShuffle() {
 		// 1. Use the Song class the play the demo.mp3 file.
-				songs.add("demo.mp3");
-				songs.add("https://www.youtube.com/watch?v=czTksCF6X8Y&t=10s");
+		
+			songs.add("demo.mp3");
+			songs.add("demo2.mp3");
 				jf.setVisible(true);
 				jf.add(jp);
 				jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -51,10 +52,13 @@ public class _06_IPodShuffle implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-//		Random rand = new Random(0-1);
-//		int random = rand.nextInt();
+
+	
+		
 		if(e.getSource().equals(jb)) {
-			Song s = new Song(songs.get(0));
+			Random rand = new Random();
+			int random = rand.nextInt(2);
+			Song s = new Song(songs.get(random));
 			s.play();
 		
 			
