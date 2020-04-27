@@ -2,29 +2,34 @@ package _03_IntroToStacks;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.Stack;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class _02_TextUndoRedo implements KeyListener {
-	
+	String letter = " ";
+	Stack<String> deleted = new Stack<String>();
+	JFrame jf = new JFrame();
+	JPanel jp = new JPanel();
+	JLabel jl = new JLabel();
 	public static void main(String[] args) {
-		
+		_02_TextUndoRedo tur= new _02_TextUndoRedo();
+		tur.setup();
 	}void setup(){
-		JFrame jf = new JFrame();
-		JPanel jp = new JPanel();
-		JLabel jl = new JLabel();
+		
+	
 		
 		jf.add(jp);
 		jf.setVisible(true);
 		
 		jp.add(jl);
 		
-		jl.addKeyListener(this);
+		jf.addKeyListener(this);
 		
 		
-		
+
 		
 		
 		
@@ -37,9 +42,26 @@ public class _02_TextUndoRedo implements KeyListener {
 	@Override
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
-		_02_TextUndoRedo tur= new _02_TextUndoRedo();
-		tur.setup();
-		
+		System.out.println(e.getKeyCode());
+if(letter.length()==0) {
+	letter+="There is nothing left ";
+}else {
+
+if(e.getKeyChar()=='\b') {
+	deleted.push(letter.charAt(letter.length()-1)+"");
+	letter= letter.substring(0, letter.length()-1);
+	
+}else {
+	 letter += e.getKeyChar();
+	 }
+if(e.getKeyCode()==10) {
+	letter+= deleted.pop();
+	
+}
+System.out.println(letter);
+jl.setText(letter);
+jf.pack();
+}
 	}
 	@Override
 	public void keyReleased(KeyEvent e) {
